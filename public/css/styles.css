@@ -1,17 +1,30 @@
-/* General Styles */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #616f77;
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
 
 html {
     font-size: 16px;
-}
-
-input {
-    font-size: 14px;
 }
 
 body {
@@ -29,9 +42,11 @@ label {
     font-size: 14px;
     margin-bottom: 8px;
     color: #777;
+    font-weight: 600;
 }
 
 input {
+    font-size: 14px;
     border: 1px solid #eeeeee;
     padding: 12px;
     outline: none;
@@ -40,7 +55,7 @@ input {
 button {
     cursor: pointer;
     padding: 12px;
-    background: #7C5CBF;
+    background: #616f77;
     border: none;
     color: white;
     font-size: 16px;
@@ -48,7 +63,7 @@ button {
 }
 
 button:hover {
-    background: #6b47b8;
+    background: #3e464b;
 }
 
 button:disabled {
@@ -56,10 +71,8 @@ button:disabled {
     background: #7c5cbf94;
 }
 
-/* Join Page Styles */
-
 .centered-form {
-    background: #333744;
+    background: #3e464b;
     width: 100vw;
     height: 100vh;   
     display: flex;
@@ -68,36 +81,79 @@ button:disabled {
 }
 
 .centered-form__box {
-    box-shadow: 0px 0px 17px 1px #1D1F26;
+    box-shadow: 0px 0px 17px 1px #ffffff98;
     background: #F7F7FA;
     padding: 24px;
-    width: 250px;
+    width: 350px;
+    height: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+.text{
+    text-align: center;
+}
+.form_{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .centered-form button {
     width: 100%;
+    border-radius: 5px;
 }
 
-.centered-form input {
-    margin-bottom: 16px;
+.centered-form__box .name-box{
+    position: relative;
+}
+.centered-form__box .name-box input {
     width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #616f77;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #333131;
+    outline: none;
+    background: transparent;
 }
 
-/* Chat Page Layout */
+.centered-form__box .name-box  label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #616f77;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.centered-form__box .name-box input:focus ~ label,
+.centered-form__box .name-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #bdb8b8;
+  font-size: 12px;
+}
 
 .chat {
     display: flex;
+    background-color: #e9e9e9af;
 }
 
 .chat__sidebar {
     height: 100vh;
     color: white;
-    background: #333744;
+    background: #616f77;
     width: 225px;
-    overflow-y: scroll
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
-
-/* Chat styles */
 
 .chat__main {
     flex-grow: 1;
@@ -112,15 +168,15 @@ button:disabled {
     overflow-y: scroll;
 }
 
-/* Message Styles */
 
 .message {
-    margin-bottom: 16px;   
+    margin-bottom: 16px; 
+    border-bottom:1px solid #616f77 ;  
 }
 
 .message__name {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     margin-right: 8px;
 }
 
@@ -129,11 +185,18 @@ button:disabled {
     font-size: 14px;
 }
 
-.message a {
-    color: #0070CC;
+.message_body{
+    font-size: 20px;
+    margin: 14px 0px 8px 0 ;
 }
-
-/* Message Composition Styles */
+.link{
+    font-size: 20px;
+    margin: 14px 0px 8px 0 ;
+}
+.message a {
+    color: #0099f8;
+    text-decoration: none;
+}
 
 .compose {
     display: flex;
@@ -149,23 +212,26 @@ button:disabled {
 }
 
 .compose input {
-    border: 1px solid #eeeeee;
+    border: 1px solid #8d8a8a5d;
+    border-bottom: 1px solid #616f77;
+    background-color: transparent;
     width: 100%;
     padding: 12px;
     margin: 0 16px 0 0;
     flex-grow: 1;
+    border-radius: 5px;
 }
 
 .compose button {
     font-size: 14px;
+    border-radius: 5px;
 }
 
-/* Chat Sidebar Styles */
 
 .room-title {
     font-weight: 400;
     font-size: 22px;
-    background: #2c2f3a;
+    background: #3e464b;
     padding: 24px;   
 }
 
@@ -181,3 +247,216 @@ button:disabled {
     font-weight: 300;
     padding: 12px 24px 0 24px;
 }
+
+.user{
+    width: 150%;
+    height: 50px;
+    padding: 25px;
+    display: flex;
+    margin-left: -25px;
+    align-items: center;
+    border: 1px solid #ffffff;
+}
+
+
+#loader {
+    --background: #62abff;
+    --front-color: #9cb6c5;
+    --back-color: #c3c8de;
+    --text-color: #414856;
+    width: 100%;
+    background-color: #616f77;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  #loader svg {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #loader svg circle {
+    position: absolute;
+    fill: none;
+    stroke-width: 6px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: rotate(-100deg);
+    transform-origin: center;
+  }
+  
+  #loader svg circle.back {
+    stroke: var(--back-color);
+  }
+  
+  #loader svg circle.front {
+    stroke: var(--front-color);
+  }
+  
+  #loader svg.circle-outer {
+    height: 86px;
+    width: 86px;
+  }
+  
+  #loader svg.circle-outer circle {
+    stroke-dasharray: 62.75 188.25;
+  }
+  
+  #loader svg.circle-outer circle.back {
+    animation: circle-outer135 1.8s ease infinite 0.3s;
+  }
+  
+  #loader svg.circle-outer circle.front {
+    animation: circle-outer135 1.8s ease infinite 0.15s;
+  }
+  
+  #loader svg.circle-middle {
+    height: 60px;
+    width: 60px;
+  }
+  
+  #loader svg.circle-middle circle {
+    stroke-dasharray: 42.5 127.5;
+  }
+  
+  #loader svg.circle-middle circle.back {
+    animation: circle-middle6123 1.8s ease infinite 0.25s;
+  }
+  
+  #loader svg.circle-middle circle.front {
+    animation: circle-middle6123 1.8s ease infinite 0.1s;
+  }
+  
+  #loader svg.circle-inner {
+    height: 34px;
+    width: 34px;
+  }
+  
+  #loader svg.circle-inner circle {
+    stroke-dasharray: 22 66;
+  }
+  
+  #loader svg.circle-inner circle.back {
+    animation: circle-inner162 1.8s ease infinite 0.2s;
+  }
+  
+  #loader svg.circle-inner circle.front {
+    animation: circle-inner162 1.8s ease infinite 0.05s;
+  }
+  
+  #loader .text {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: lowercase;
+    font-weight: 800;
+    font-size: 20px;
+    margin-top: 110px;
+    letter-spacing: 0.2px;
+  }
+  
+  #loader .text::before, #loader .text::after {
+    content: attr(data-text);
+  }
+  
+  #loader .text::before {
+    color: var(--text-color);
+  }
+  
+  #loader .text::after {
+    color: var(--front-color);
+    animation: text-animation76 3.6s ease infinite;
+    position: absolute;
+    left: 0;
+  }
+  
+  @keyframes circle-outer135 {
+    0% {
+      stroke-dashoffset: 25;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 301;
+    }
+  
+    80% {
+      stroke-dashoffset: 276;
+    }
+  
+    100% {
+      stroke-dashoffset: 276;
+    }
+  }
+  
+  @keyframes circle-middle6123 {
+    0% {
+      stroke-dashoffset: 17;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 204;
+    }
+  
+    80% {
+      stroke-dashoffset: 187;
+    }
+  
+    100% {
+      stroke-dashoffset: 187;
+    }
+  }
+  
+  @keyframes circle-inner162 {
+    0% {
+      stroke-dashoffset: 9;
+    }
+  
+    25% {
+      stroke-dashoffset: 0;
+    }
+  
+    65% {
+      stroke-dashoffset: 106;
+    }
+  
+    80% {
+      stroke-dashoffset: 97;
+    }
+  
+    100% {
+      stroke-dashoffset: 97;
+    }
+  }
+  
+  @keyframes text-animation76 {
+    0% {
+      clip-path: inset(0 100% 0 0);
+    }
+  
+    50% {
+      clip-path: inset(0);
+    }
+  
+    100% {
+      clip-path: inset(0 0 0 100%);
+    }
+  }

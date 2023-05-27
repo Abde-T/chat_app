@@ -9,14 +9,20 @@
     <title>chat app</title>
 </head>
 <body>
+
+
     <div class="centered-form">
         <div class="centered-form__box">
-            <h1>Join</h1>
-            <form action="/chat.html">
-                <label>Display name</label>
-                <input type="text" name="username"  placeholder="Display name" required>
-                <label>Room</label>
-                <input type="text" name="room" placeholder="room" required>
+            <h1 class="text">Join</h1>
+            <form class="form_" action="/chat.html">
+                <div class="name-box">
+                    <input type="text" autocomplete="off" name="username"   required>
+                    <label>Display name</label>
+                </div>
+                <div class="name-box">
+                    <input type="text" autocomplete="off" name="room"  required>
+                    <label>Room</label>
+                </div>
                 <button>Join</button>
             </form>
         </div>

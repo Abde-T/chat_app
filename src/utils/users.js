@@ -12,11 +12,11 @@ const addUser = ({id, username, room})=>{
         }
     }
     //* check for exixting user
-    const exixtingUser = users.find((user)=>{
+    const existingUser = users.find((user) => {
         return user.room === room && user.username === username
     })
     //* Validate userName
-    if(exixtingUser){
+    if(existingUser){
         return{
             error:'Username is in use!'
         }
