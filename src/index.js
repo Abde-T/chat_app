@@ -7,7 +7,7 @@ const Filter = require('bad-words')
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
-const {generateMessage, generateLocationMessage} = require('./utils/messages')
+const {generateMessage, generateLocationMessage, generateAdminMessage} = require('./utils/messages')
 const { addUser, removeUser, getUser, getUserInRoom} = require('./utils/users')
 
 const publicDirectoryPath = path.join(__dirname, "../public/");
@@ -31,7 +31,7 @@ io.on("connection", (socket)=>{
 
         socket.join(user.room)
 
-        socket.emit('message', generateMessage("Admin","Welcome!")) 
+        socket.emit('message', generateMessage("Admin", "Welcome!")) 
         socket.broadcast.to(user.room).emit('message', generateMessage("Admin", `${user.username} has joined`)) 
         io.to(user.room).emit('roomData', {
             room: user.room,

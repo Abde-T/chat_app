@@ -6,8 +6,11 @@ const messageFormInput = messageForm.querySelector("input");
 const messageFormButton = messageForm.querySelector("button");
 const locationButton = document.getElementById("sendLocation");
 const messages = document.querySelector("#messages");
+const adminMessages = document.querySelector("#adminMessages");
+
 //& -----------------------
 const messageTemplate = document.querySelector("#message-template").innerHTML;
+
 const locationMessageTemplate = document.querySelector(
   "#locationMessage-template"
 ).innerHTML;
@@ -16,6 +19,15 @@ const sideBarTemplate = document.querySelector("#sidebar-template").innerHTML;
 const { username, room } = Qs.parse(location.search, {
   ignoreQueryPrefix: true,
 });
+
+function openNav() {
+  document.querySelector(".chat__sidebar").style.width = "250px";
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.querySelector(".chat__sidebar").style.width = "0";
+}
 
 document.onreadystatechange = function () {
   setTimeout(() => {
@@ -49,7 +61,6 @@ const autoScroll = () => {
 };
 
 socket.on("message", (message) => {
-  console.log(message);
   const html = Mustache.render(messageTemplate, {
     username: message.username,
     message: message.text,
@@ -60,7 +71,7 @@ socket.on("message", (message) => {
 });
 
 socket.on("LocationMessage", (message) => {
-  console.log(message);
+
   const html = Mustache.render(locationMessageTemplate, {
     username: message.username,
     url: message.url,
@@ -92,7 +103,7 @@ messageForm.addEventListener("submit", (e) => {
     if (error) {
       return console.log(error);
     }
-    console.log("message delivered");
+
   });
 });
 
@@ -113,7 +124,7 @@ locationButton.addEventListener("click", () => {
       () => {
         locationButton.removeAttribute("disabled");
 
-        console.log("Location shared");
+
       }
     );
   });
