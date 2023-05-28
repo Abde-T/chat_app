@@ -6,6 +6,7 @@ const generateMessage = (username, text)=>{
     }
 }
 
+
 const generateLocationMessage = (username, url)=>{
     return{
         username,
@@ -17,5 +18,4 @@ const generateLocationMessage = (username, url)=>{
 module.exports = {
     generateMessage,
     generateLocationMessage,
-    
 }

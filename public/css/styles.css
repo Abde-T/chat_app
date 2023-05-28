@@ -71,6 +71,25 @@ button:disabled {
     background: #7c5cbf94;
 }
 
+.title{
+  display: flex;
+  justify-content: center;
+}
+
+.logo{
+  width: 50px;
+  margin: 0 0 20px 20px ;
+}
+
+.logout{
+  width: 100%;
+  background-color: #3e464b;
+}
+.logout a{
+  color: white;
+  text-decoration: none;
+}
+
 .centered-form {
     background: #3e464b;
     width: 100vw;
@@ -93,9 +112,11 @@ button:disabled {
     border-radius: 10px;
 }
 .text{
-    text-align: center;
+  margin-top: 7px;
+    font-size: 25px;
 }
 .form_{
+    margin-top: -20px;
     height: 300px;
     display: flex;
     flex-direction: column;
@@ -155,16 +176,12 @@ button:disabled {
     background: #616f77;
     overflow: hidden;
 }
-.closebtn{
-  font-size: 40px;
-  text-decoration: none;
-  color: #3e464b9f;
-  position: relative;
-  top: 0;
-  left: 80%;
 
+.but{
+  width: 90%;
+  display: flex;
+  justify-content: end;
 }
-
 
 
 .chat__main {
@@ -482,11 +499,13 @@ button:disabled {
     display: none;
   }
 
-@media (max-width: 550px) {
- 
-  .chat__sidebar {
-
-    width: 190px;
-   
-}
+@media (max-width: 700px) {
+  .closebtn{
+    font-size: 40px;
+    text-decoration: none;
+    color: #3e464b9f;
+  }
+  .hide{
+    display:block
+  }
 }

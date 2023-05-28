@@ -7,7 +7,7 @@ const Filter = require('bad-words')
 const app = express()
 const server = http.createServer(app)
 const io = socketio(server)
-const {generateMessage, generateLocationMessage, generateAdminMessage} = require('./utils/messages')
+const {generateMessage, generateLocationMessage, } = require('./utils/messages')
 const { addUser, removeUser, getUser, getUserInRoom} = require('./utils/users')
 
 const publicDirectoryPath = path.join(__dirname, "../public/");

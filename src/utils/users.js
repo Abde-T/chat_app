@@ -3,8 +3,8 @@ const users = []
 //~ addUser
 const addUser = ({id, username, room})=>{
     //* clean the data
-    username = username.trim().toLowerCase()
-    room = room.trim().toLowerCase()
+    username = username.trim()
+    room = room.trim()
     //* Validate data
     if(!username || !room){
         return {
@@ -44,7 +44,7 @@ const getUser = (id)=>{
 
 //~ getUserInRoom
 const getUserInRoom = (room)=>{
-    room = room.trim().toLowerCase()
+    room = room.trim()
     return users.filter((user)=> user.room === room)
 }
 

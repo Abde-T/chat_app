@@ -10,7 +10,6 @@ const adminMessages = document.querySelector("#adminMessages");
 
 //& -----------------------
 const messageTemplate = document.querySelector("#message-template").innerHTML;
-
 const locationMessageTemplate = document.querySelector(
   "#locationMessage-template"
 ).innerHTML;

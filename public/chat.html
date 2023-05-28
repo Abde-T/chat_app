@@ -3,7 +3,7 @@
 
 <head>
     <title>Chat App</title>
-    <link rel="icon" href="/img/favicon.png">
+    <link rel="icon" href="/img/logo.png">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 
@@ -30,7 +30,7 @@
         <div id="sidebar" class="chat__sidebar">
         </div>
         <div class="chat__main">
-            <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+            <button class="openbtn hide" onclick="openNav()">&#9776; Open Sidebar</button>
             <div id="messages" class="chat__messages"></div>
             <div id="adminMessages" class="chat__messages"></div>
 
@@ -53,6 +53,7 @@
             <p class="message_body">{{message}}</p>
         </div>
     </script>
+    
 
     <script id="locationMessage-template" type="text/html">
         <div class="message">
@@ -65,7 +66,9 @@
     </script>
 
     <script id="sidebar-template" type="text/html">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="but">
+            <a href="javascript:void(0)" class="closebtn hide" onclick="closeNav()">&times;</a>
+        </div>
         <h2 class="room-title">{{room}}</h2>
         <h3 class="list-title">Users</h3>
         <ul class="users">
@@ -73,6 +76,8 @@
                 <li class="user">{{username}}</li>
             {{/users}}
         </ul>
+        
+        <button class="logout"><a href="/index.html">Logout</a></button>
     </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
